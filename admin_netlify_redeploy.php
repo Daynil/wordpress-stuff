@@ -72,7 +72,8 @@ function trigger_netlify_rebuild()
 
   $curl = curl_init();
   curl_setopt($curl, CURLOPT_POST, 1);
-  curl_setopt($curl, CURLOPT_POSTFIELDS, new stdClass());
+  // curl_setopt($curl, CURLOPT_POSTFIELDS, new stdClass());
+  curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode([]));
   curl_setopt($curl, CURLOPT_URL, 'https://api.netlify.com/build_hooks/XXXXXXXX');
 
   $result = curl_exec($curl);
